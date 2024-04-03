@@ -1,5 +1,5 @@
 #define _CRT_SECURE_NO_DEPRECATE    
-/*#include <stdio.h>
+#include <stdio.h>
 int main()
 {
 	int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -8,48 +8,46 @@ int main()
 	int left = 0;
 	int right = sz-1;
 	int mid = 0;
-	while(left < right) {
-		mid = (left + right) / 2;
-		if (k < arr[mid]) {
-			right = mid - 1;
+	while(left < right) {			//æ­£å¸¸æƒ…å†µ
+		mid = (left + right) / 2;	//æ‰¾æ•°ç»„ä¸­é—´çš„æ•°è¿›è¡Œåˆ¤æ–­
+		if (k < arr[mid]) {			//arr[mid]å¤§äºè¦æ‰¾çš„å…ƒç´ 
+			right = mid - 1;		
 		}
-		else if(k == arr[mid]) {
-			;
-		}
-		else {
+		else if(arr[mid] < k){		//arr[mid]å°äºè¦æ‰¾çš„å…ƒç´ 
 			left = mid + 1;
 		}
-		printf("ÕÒµ½ÁË£¬Êı×éÏÂ±ê:%d", mid);
-	}
-	if(left > right){
-		printf("³ÌĞò³ö´í£¬Çë¼ì²é!\n");
-	}
-
-	return 0;
-}
-´Ë´úÂëÓĞ´íÎó,Î´ĞŞÕı
-*/
-
-//forÑ­»··½Ê½
-
-#include <stdio.h>
-int main()
-{
-	int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-	int sz = sizeof(arr) / sizeof(arr[0]);
-	int i = 0;
-	int k = 15;
-	for (i = 0; i <= sz - 1; i++)
-	{
-		if (k == arr[i])
-		{
-			printf("ÕÒµ½ÁË£¬Êı×éÏÂ±êÎª:%d", i);
-			break;
+		else{
+		printf("æ‰¾åˆ°äº†ï¼Œæ•°ç»„ä¸‹æ ‡:%d", mid);
+		break;//åœ¨æ‰¾åˆ°æ•°ç»„ä¸‹æ ‡åï¼Œéœ€è¦ç”¨breakè·³å‡ºå¾ªç¯
 		}
-		else if(i == sz-1 ){
-			printf("²éÕÒÊ§°Ü£¡\n");
-		}
+	}
+	if(left > right){				//å¼‚å¸¸å¤„ç†
+		printf("ç¨‹åºå‡ºé”™ï¼Œè¯·æ£€æŸ¥!\n");
 	}
 	return 0;
 }
+
+
+//forå¾ªç¯æ–¹å¼
+//ä»£ç æ­£ç¡®ï¼Œå·²ç»debug
+//#include <stdio.h>
+//int main()
+//{
+//	int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int i = 0;
+//	int k = 15;
+//	for (i = 0; i <= sz - 1; i++)
+//	{
+//		if (k == arr[i])
+//		{
+//			printf("æ‰¾åˆ°äº†ï¼Œæ•°ç»„ä¸‹æ ‡ä¸º:%d", i);
+//			break;
+//		}
+//		else if(i == sz-1 ){
+//			printf("æŸ¥æ‰¾å¤±è´¥ï¼\n");
+//		}
+//	}
+//	return 0;
+//}
 
